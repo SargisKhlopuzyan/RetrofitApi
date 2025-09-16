@@ -23,7 +23,7 @@ data class HitDto(
     @Json(name = "isGRated")
     val isGRated: Boolean,
     @Json(name = "isLowQuality")
-    val isLowQuality: Int,
+    val isLowQuality: Boolean,
     @Json(name = "largeImageURL")
     val largeImageURL: String,
     @Json(name = "likes")

@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.sargis.khlopuzyan.retrofitapi"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.sargis.khlopuzyan.retrofitapi"
@@ -59,7 +59,14 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Coil
+    implementation (libs.coil.compose)
+
     testImplementation(libs.junit)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.mockito.core)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
