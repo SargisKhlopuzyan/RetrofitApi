@@ -13,8 +13,10 @@ mockitoCore = "5.19.0"
 moshiKotlin = "1.9.1"
 retrofit = "3.0.0"
 lifecycleViewmodelCompose = "2.9.3"
+androidxNavigationCompose = "2.9.4"
 gson = "2.13.1"
 coilCompose = "1.4.0"
+koin = "4.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,7 +44,13 @@ converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.r
 
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidxNavigationCompose" }
+
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-androidx-compose-navigation = { module = "io.insert-koin:koin-androidx-compose-navigation", version.ref = "koin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

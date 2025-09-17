@@ -2,7 +2,7 @@ package com.sargis.khlopuzyan.retrofitapi.domain.usecase
 
 import com.sargis.khlopuzyan.retrofitapi.data.remote.dto.HitDto
 import com.sargis.khlopuzyan.retrofitapi.data.remote.dto.PixabayDto
-import com.sargis.khlopuzyan.retrofitapi.domain.repository.PixabayRepository
+import com.sargis.khlopuzyan.retrofitapi.domain.repository.ImageSearchRepository
 import com.sargis.khlopuzyan.retrofitapi.domain.util.Result
 import com.sargis.khlopuzyan.retrofitapi.domain.util.UiError
 import kotlinx.coroutines.test.runTest
@@ -11,30 +11,30 @@ import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
 
-class SearchImagesUseCaseTest {
+class ImagesSearchUseCaseTest {
 
-    private val pixabayRepository: PixabayRepository = mock()
+    private val imageSearchRepository: ImageSearchRepository = mock()
 
     @Test
     fun test_success() = runTest {
-        `when`(pixabayRepository.searchImagesByQuery("chicken")).thenReturn(
+        `when`(imageSearchRepository.searchImageByQuery("chicken")).thenReturn(
             Result.Success(
                 getPixabayDtoResponse()
             )
         )
-        val useCase = SearchImagesUseCaseImpl(pixabayRepository)
-        val result = useCase.searchImagesByQuery("chicken")
+        val useCase = ImageSearchUseCaseImpl(imageSearchRepository)
+        val result = useCase.searchImageByQuery("chicken")
 
         Assert.assertEquals(result.data, getPixabayDtoResponse())
     }
 
     @Test
     fun test_fail() = runTest {
-        `when`(pixabayRepository.searchImagesByQuery("chicken")).thenReturn(
+        `when`(imageSearchRepository.searchImageByQuery("chicken")).thenReturn(
             Result.Error(UiError.UnknownError)
         )
-        val useCase = SearchImagesUseCaseImpl(pixabayRepository)
-        val result = useCase.searchImagesByQuery("chicken")
+        val useCase = ImageSearchUseCaseImpl(imageSearchRepository)
+        val result = useCase.searchImageByQuery("chicken")
 
         Assert.assertEquals(result.uiError, UiError.UnknownError)
     }

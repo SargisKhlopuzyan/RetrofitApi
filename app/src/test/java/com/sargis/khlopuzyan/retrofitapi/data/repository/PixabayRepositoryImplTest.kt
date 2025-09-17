@@ -25,8 +25,8 @@ class PixabayRepositoryImplTest {
             )
         ).thenReturn(getPixabayDtoResponse())
 
-        val repo = PixabayRepositoryImpl(pixabayApiService)
-        val response = repo.searchImagesByQuery("chicken")
+        val repo = ImageSearchRepositoryImpl(pixabayApiService)
+        val response = repo.searchImageByQuery("chicken")
 
         assertEquals(getPixabayDtoResponse().hits, response.data?.hits)
     }
@@ -40,8 +40,8 @@ class PixabayRepositoryImplTest {
             )
         ).thenThrow(RuntimeException(UiError.UnknownError.name))
 
-        val repo = PixabayRepositoryImpl(pixabayApiService)
-        val response: Result<PixabayDto> = repo.searchImagesByQuery("chicken")
+        val repo = ImageSearchRepositoryImpl(pixabayApiService)
+        val response: Result<PixabayDto> = repo.searchImageByQuery("chicken")
         val message = UiError.UnknownError.name
 
         assertEquals(response.uiError?.name, message)

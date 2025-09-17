@@ -63,6 +63,14 @@ dependencies {
     // Coil
     implementation (libs.coil.compose)
 
+    // navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // Injection Koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.androidx.compose.navigation)
+
     testImplementation(libs.junit)
     testImplementation (libs.kotlinx.coroutines.test)
     testImplementation (libs.mockito.core)
